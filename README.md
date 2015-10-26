@@ -1,6 +1,6 @@
 # Gift Tracker Application
 An application that allows you to keep track of what people want for gifts at different holidays and occasions,
-what you've purchased, and has other features as well
+what you've purchased and more
 
 ### Feature Plan
 * Picture Upload
@@ -18,7 +18,7 @@ what you've purchased, and has other features as well
 
 ***
 
-You will be able to
+###You will be able to
 * Add people so you can keep track of individuals for each occasion
 * Pick occasions so you can have more than one for each person at one time
 * Sort by occasion or by person
