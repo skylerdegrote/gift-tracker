@@ -16,3 +16,5 @@ var OccasionsSchema = new Schema({
 
 var occasion = mongoose.model('occasions', OccasionsSchema);
 module.exports = occasion;
+
+
