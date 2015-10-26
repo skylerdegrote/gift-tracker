@@ -1,0 +1,17 @@
+{
+  "name": "gift-tracker-app",
+  "version": "1.0.0",
+  "description": "an application that lets you keep track of what people want for different holidays and occasions, what you've purchased, and what others have purchased",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Skyler DeGrote",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-animate": "^1.4.7",
+    "angular-aria": "^1.4.7",
+    "angular-material": "^0.11.4"
+  }
+}
