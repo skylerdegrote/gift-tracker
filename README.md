@@ -15,14 +15,18 @@ what you've purchased, and has other features as well
 * Note taking on each item
 * Note taking on each person
 * Log in to an account
-- - -
+
+***
+
 You will be able to
 * Add people so you can keep track of individuals for each occasion
 * Pick occasions so you can have more than one for each person at one time
 * Sort by occasion or by person
 * Add a custom occasion
 * Send yourself a reminder email to remind you when the occasion is coming up soon
-- - -
+
+***
+
 ### Occasion Ideas
 * Birthday
 * Christmas
