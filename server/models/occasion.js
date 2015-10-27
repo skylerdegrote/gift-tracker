@@ -10,6 +10,7 @@ var OccasionsSchema = new Schema({
         stores:[],
         imageUrl: {type: String, default: 'assets/images/gifts.jpg'},
         purchased: Boolean,
+        complete: Boolean,
         notes: String
     }]
 });
