@@ -7,5 +7,7 @@ what you've purchased and more
 #### Tools and Languages Being Used
 * AngularJS
 * Angular Material
+* MongoDB
+* Passport
 
 ***
