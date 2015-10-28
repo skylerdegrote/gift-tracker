@@ -1,6 +1,23 @@
-.md-toolbar-tools h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 20px;
-}
+/*.md-toolbar-tools h1 {*/
+    /*font-size: 20px;*/
+    /*font-weight: normal;*/
+    /*margin: 20px;*/
+    /*background-color: #1b1464;*/
+/*}*/
 
+/*.blue {*/
+    /*font-size: 20px;*/
+    /*font-weight: normal;*/
+    /*background-color: #1b1464;*/
+    /*color: #f7931e;*/
+    /*margin: 0;*/
+/*}*/
+
+.blue h1 {
+    font-size: 20px;
+    font-weight: normal;
+    background-color: #1b1464;
+    color: #f7931e;
+    padding: 25px;
+    margin: 0;
+}
