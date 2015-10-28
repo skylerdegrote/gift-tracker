@@ -11,6 +11,3 @@ what you've purchased and more
 * Passport
 
 ***
-
-
-
