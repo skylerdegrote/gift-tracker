@@ -15,3 +15,4 @@ app.controller('AppController', ['$scope', '$mdSidenav', function($scope, $mdSid
         $mdSidenav(menuId).toggle();
     };
 }]);
+

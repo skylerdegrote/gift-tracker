@@ -1,0 +1,51 @@
+
+
+
+header {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+h3 {
+    margin:20px 10px 10px 30px;
+}
+
+h4 {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+h5 {
+    text-align: center;
+}
+
+.centerTextBlack {
+    text-align: center;
+    color: black
+}
+
+.centerTextWhite {
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+}
+
+.blackHorizTie {
+    background-color: black;
+    height: 70px;
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+.blackVertTie {
+    background-color: black;
+    width: 40px;
+}
+

@@ -1,23 +1,51 @@
-/*.md-toolbar-tools h1 {*/
-    /*font-size: 20px;*/
-    /*font-weight: normal;*/
-    /*margin: 20px;*/
-    /*background-color: #1b1464;*/
-/*}*/
 
-/*.blue {*/
-    /*font-size: 20px;*/
-    /*font-weight: normal;*/
-    /*background-color: #1b1464;*/
-    /*color: #f7931e;*/
-    /*margin: 0;*/
-/*}*/
 
-.blue h1 {
-    font-size: 20px;
-    font-weight: normal;
-    background-color: #1b1464;
-    color: #f7931e;
-    padding: 25px;
-    margin: 0;
+
+header {
+    background-color: black;
+    color: white;
+    width: 100%;
 }
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+h3 {
+    margin:20px 10px 10px 30px;
+}
+
+h4 {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+h5 {
+    text-align: center;
+}
+
+.centerTextBlack {
+    text-align: center;
+    color: black
+}
+
+.centerTextWhite {
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+}
+
+.blackHorizTie {
+    background-color: black;
+    height: 70px;
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+.blackVertTie {
+    background-color: black;
+    width: 40px;
+}
+

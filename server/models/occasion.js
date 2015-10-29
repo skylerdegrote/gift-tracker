@@ -1,3 +1,4 @@
+//may not use this
 var mongoose = require('mongoose'),
     occasions = require('./occasions'),
     Schema = mongoose.Schema;
@@ -8,7 +9,7 @@ var OccasionsSchema = new Schema({
     gifts: [{
         name: String,
         stores:[],
-        imageUrl: {type: String, default: 'assets/images/gifts.jpg'},
+        imageUrl: {type: String, default: 'assets/images/occasion.jpg'},
         purchased: Boolean,
         complete: Boolean,
         notes: String
