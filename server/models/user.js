@@ -32,15 +32,6 @@ var UserSchema = new Schema({
             notes: String
         }]
     }],
-    gifts: [{
-        name: String,
-        imageUrl: {type: String, default: 'assets/images/gifts.jpg'},
-        to: [],
-        stores:[],
-        purchased: Boolean,
-        price: Number,
-        notes: String
-    }],
     notes: String
 
     //firstName: String,

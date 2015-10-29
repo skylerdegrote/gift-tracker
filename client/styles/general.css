@@ -1,6 +1,4 @@
 
-
-
 header {
     background-color: black;
     color: white;
@@ -49,3 +47,9 @@ h5 {
     width: 40px;
 }
 
+#backgroundImg {
+    width: 1250px;
+    height: auto;
+    display: inline-block;
+
+}
