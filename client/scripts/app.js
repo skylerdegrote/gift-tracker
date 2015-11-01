@@ -8,18 +8,15 @@
 
 
 
-var app = angular.module('myApp', ['ngMaterial', 'ngRoute']);
+var app = angular.module('StarterApp', ['ngMaterial']);
 
 app.controller('AppController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
-
-    $scope.toggleMenu = function(menuId){
-        header(menuId).toggle();
-    };
 }]);
 
+var app = angular.module('myApp', ['ngRoute']);
 
 app.controller('RootCtrl', ['$scope', function($scope){
     $scope.title = "Home Page";
@@ -34,17 +31,14 @@ app.config(['$routeProvider', function($routeProvider){
         .when('/home', {
             templateUrl : './home.html'
         })
+        .when('/login', {
+            templateUrl : './login.html'
+        })
         .when('/person', {
             templateUrl : './person.html'
         })
         .when('/occasion', {
             templateUrl : './occasion.html'
-        })
-        .when('/login', {
-            templateUrl : './login.html'
-        })
-        .when('/register', {
-            templateUrl : './register.html'
         })
         .when('/newperson', {
             templateUrl : './newperson.html'
@@ -56,6 +50,6 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl : './newgift.html'
         })
         .otherwise({
-            redirectTo : '/home.html'
+            redirectTo : '/home'
         });
 }]);
