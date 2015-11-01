@@ -8,15 +8,14 @@
 
 
 
-var app = angular.module('StarterApp', ['ngMaterial']);
 
+
+var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 app.controller('AppController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
 }]);
-
-var app = angular.module('myApp', ['ngRoute']);
 
 app.controller('RootCtrl', ['$scope', function($scope){
     $scope.title = "Home Page";
