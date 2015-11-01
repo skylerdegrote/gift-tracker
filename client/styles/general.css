@@ -31,7 +31,17 @@ h5 {
     text-align: center;
 }
 
+.center {
+    text-align: center;
+    margin: auto;
+    width: 600px;
+}
 
+.centerTitle {
+    text-align: center;
+    margin: auto;
+    width: 850px;
+}
 
 .centerTextBlack {
     text-align: center;
