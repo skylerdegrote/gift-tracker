@@ -23,12 +23,18 @@ var UserSchema = new Schema({
         required: true
     },
     occasions:[{
-        name: String,
+        name: {
+            type: String,
+            required: true
+        },
         date: Date,
         notes: String
     }],
     people: [{
-        firstName: String,
+        firstName: {
+            type: String,
+            required: true
+        },
         lastName: String,
         gender: String,
         email: String,
@@ -37,11 +43,20 @@ var UserSchema = new Schema({
         notes: String
         }],
     gifts: [{
-        name: String,
+        name: {
+            type: String,
+            required: true
+        },
         imageUrl: {type: String, default: 'assets/images/gifts.jpg'},
-        to: [String],
+        to: {
+            type: [String],
+            required: true
+        },
         description: String,
-        stores:[],
+        stores:{
+            type: [],
+            required: true
+        },
         purchased: Boolean,
         price: Number,
         notes: String
