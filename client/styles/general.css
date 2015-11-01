@@ -31,9 +31,7 @@ h5 {
     text-align: center;
 }
 
-.fullHeight {
-    margin-top: 302px;
-}
+
 
 .centerTextBlack {
     text-align: center;
@@ -46,15 +44,4 @@ h5 {
     vertical-align: middle;
 }
 
-.blackHorizTie {
-    background-color: black;
-    height: 70px;
-    width: 100%;
-    margin:0;
-    padding:0;
-}
-.blackVertTie {
-    background-color: black;
-    width: 40px;
-}
 
