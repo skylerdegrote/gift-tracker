@@ -37,10 +37,12 @@ h5 {
     width: 600px;
 }
 
-.centerTitle {
+.md-display-3, .md-headline {
     text-align: center;
     margin: auto;
-    width: 850px;
+    width: 950px;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .centerTextBlack {
