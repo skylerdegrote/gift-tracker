@@ -22,7 +22,13 @@ module.exports = function(grunt){
                     'index.html',
                     'users.html',
                     'register.html',
-                    'login.html'
+                    'login.html',
+                    'home.html',
+                    'newgift.html',
+                    'newoccasion.html',
+                    'newperson.html',
+                    'occasion.html',
+                    'person.html'
                 ],
                 dest: "server/public/views/"
             },
@@ -47,7 +53,8 @@ module.exports = function(grunt){
                 cwd: 'node_modules',
                 src: [
                     "angular/angular.min.js",
-                    "angular/angular.min.map.js"
+                    "angular/angular.min.map.js",
+                    "angular-route/angular-route.min.js"
                 ],
                 dest: "server/public/vendors/"
             },

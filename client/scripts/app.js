@@ -1,56 +1,26 @@
-/**
- * Created by Skyler DeGrote on 10/26/15.
- */
-    // Include app dependency on ngMaterial
-
-//angular.module( 'YourApp', [ 'ngMaterial' ] )
-//    .controller("YourController", YourController );
+//client side
 
 
+$(document).ready(function(){
+    //this is where the ajax call will go
+    //interactive stuff
+    //BASICALLY this is the normal javascript file!
 
 
+    //$("#inputForm").submit(function(event){
+    //    event.preventDefault();
+    //    var formData = $("#inputForm").serialize();
+    //    console.log(formData);
+    $.ajax({
+        type: "POST",//sends data to the server
+        url: "/requests",
+        data: formData,
+        success: function(data){
+            getData();
+            console.log(data);
+        }
+    });
+    //});
+    //getData();
 
-var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
-app.controller('AppController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
-    $scope.toggleSidenav = function(menuId) {
-        $mdSidenav(menuId).toggle();
-    };
-}]);
-
-app.controller('RootCtrl', ['$scope', function($scope){
-    $scope.title = "Home Page";
-}]);
-
-app.controller('CatsCtrl', ['$scope', function($scope){
-    $scope.title = "Cats Page";
-}]);
-
-app.config(['$routeProvider', function($routeProvider){
-    $routeProvider
-        .when('/home', {
-            templateUrl : './home.html'
-        })
-        .when('/login', {
-            templateUrl : './login.html'
-        })
-        .when('/person', {
-            templateUrl : './person.html'
-        })
-        .when('/occasion', {
-            templateUrl : './occasion.html'
-        })
-        .when('/newperson', {
-            templateUrl : './newperson.html'
-        })
-        .when('/newoccasion', {
-            templateUrl : './newoccasion.html'
-        })
-        .when('/newgift', {
-            templateUrl : './newgift.html'
-        })
-        .otherwise({
-            redirectTo : '/home'
-        });
-}]);
-
-
+});
