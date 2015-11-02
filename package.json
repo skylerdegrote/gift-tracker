@@ -4,7 +4,8 @@
   "description": "an application that lets you keep track of what people want for different holidays and occasions, what you've purchased, and what others have purchased",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
   },
   "author": "Skyler DeGrote",
   "license": "ISC",
