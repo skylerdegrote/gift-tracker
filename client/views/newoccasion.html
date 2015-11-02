@@ -1,3 +1,65 @@
-<div class="top" layout="column" offset-gt-lg="40" offset-gt-md="20" offset-gt-sm="10" offset-sm="0" offset="0">
-<h1 class="center">New Occasion</h1>
+<div class="top" layout="column" offset-gt-lg="5" offset-gt-md="20" offset-gt-sm="10" offset-sm="0" offset="0">
+    <div class="center">
+
+        <h1>Create a New Occasion: {{person.firstname}} {{person.lastname}}</h1>
+
+    </div>
+    <!--<form>-->
+    <!--<label> First Name: </label>-->
+    <!--<input type="text" name="userName" ng-model="person.firstname"><br>-->
+    <!--<label> Last Name:</label>-->
+    <!--<input type="text" name="userName" ng-model="person.lastname">-->
+    <!--</form>-->
+
+
+
+
+    <md-content layout-wrap layout-padding layout="row" layout-sm="column">
+        <md-input-container flex="25">
+            <label>First Name: </label>
+            <input ng-model="person.firstname" type="text">
+        </md-input-container>
+        <md-input-container flex="25">
+            <label>Last Name:</label>
+            <input ng-model="person.lastname" type="text">
+        </md-input-container>
+        <md-input-container flex="25">
+            <label>Username:</label>
+            <input ng-model="person.username" type="text">
+        </md-input-container>
+        <md-input-container flex="25">
+            <label>Password:</label>
+            <input ng-model="person.password" type="password">
+        </md-input-container>
+        <md-input-container flex="35">
+            <label>Email: </label>
+            <input ng-model="person.email" type="email">
+        </md-input-container>
+        <md-input-container flex="20">
+            <label>Birth Date:</label>
+            <input ng-model="person.birthdate" type="date">
+        </md-input-container>
+        <md-input-container flex="20">
+            <label>Gender:</label>
+            <input ng-model="person.gender" type="text">
+        </md-input-container>
+
+        <md-input-container flex="25">
+            <label>Upload: </label>
+            <input offset="25" type="file" id="file" name="file" ng-model="person.image">
+            <button ng-file-upload>Submit Your Image</button>
+        </md-input-container>
+
+        <md-input-container flex="100">
+            <label>Notes:</label>
+            <input ng-model="person.notes" type="text">
+        </md-input-container>
+
+
+        <button type="submit">Submit This Person</button>
+
+    </md-content>
+
+
+
 </div>
