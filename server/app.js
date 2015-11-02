@@ -14,8 +14,8 @@ var localStrategy = require('passport-local');
 //var flash = require('connect-flash');
 
 //var embed = require('./models/embed');
-//var register = require('./routes/register');
-//var login = require('./routes/login');
+var register = require('./routes/register');
+var login = require('./routes/login');
 //var admin = require('./routes/admin');
 //var embeds = require('./routes/embeds');
 var index = require('./routes/index');
@@ -121,8 +121,8 @@ app.get('/logout', function(req, res){
  }
  })*/
 
-//app.use('/register', register);
-//app.use('/login', login);
+app.use('/register', register);
+app.use('/login', login);
 //app.use('/admin', admin);
 //app.use('/resources', embeds);
 app.use('/', index);

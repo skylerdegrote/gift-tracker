@@ -1,1 +1,85 @@
-<h1>log in</h1>
+<!--<div class="top" layout="column" offset-gt-lg="40" offset-gt-md="20" offset-gt-sm="10" offset-sm="0" offset="0">-->
+    <h1 class="center">Log In or Create An Account</h1>
+
+
+<!--<form class="loginForm">-->
+    <!--<md-content layout-wrap layout-padding layout="row" layout-sm="column">-->
+        <!--<md-input-container flex="25">-->
+            <!--<label>First Name: </label>-->
+            <!--<input ng-model="person.firstname" type="text">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="25">-->
+            <!--<label>Last Name:</label>-->
+            <!--<input ng-model="person.lastname" type="text">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="25">-->
+            <!--<label>Short Name: </label>-->
+            <!--<input ng-model="person.shortname" type="text">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="25">-->
+            <!--<label>Username:</label>-->
+            <!--<input ng-model="person.username" type="text">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="25">-->
+            <!--<label>Password:</label>-->
+            <!--<input ng-model="person.password" type="password">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="35">-->
+            <!--<label>Email: </label>-->
+            <!--<input ng-model="person.email" type="email">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="20">-->
+            <!--<label>Birth Date:</label>-->
+            <!--<input ng-model="person.birthdate" type="date">-->
+        <!--</md-input-container>-->
+
+        <!--<md-input-container flex="20">-->
+            <!--<label>Gender:</label>-->
+            <!--<input ng-model="person.gender" type="text">-->
+        <!--</md-input-container>-->
+
+
+
+
+        <!--<md-button type="submit" class="md-primary" ng-class="{'md-raised md-hue-1' :{loginForm.$dirty && loginForm.$valid}}" ng-click="createUser()">Create Account</md-button>-->
+
+    <!--</md-content>-->
+
+
+<!--</form>-->
+
+
+
+<div flex layout="row" class="md-padding" flex="30">
+    <div flex-sm="100" flex-gt-sm="100" flex-gt-md="100" flex-gt-lg="100" class="md-whiteframe-z2">
+        <md-content class="md-padding">
+            <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+                <form name="contactForm" data-ng-submit="sendMail()">
+                    <md-input-container>
+                        <label>Name:</label>
+                        <input ng-model="contactName" required>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Email:</label>
+                        <input type="email" ng-model="contactEmail" required>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Message:</label>
+                        <textarea ng-model="contactMsg" columns="3" md-maxlength="150" required></textarea>
+                    </md-input-container>
+
+                    <md-button type="submit" class="md-primary"
+                               ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }"
+                               aria-label="Save Project">Send</md-button>
+                </form>
+            </div>
+        </md-content>
+    </div>
+</div>
