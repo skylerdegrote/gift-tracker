@@ -1,20 +1,12 @@
 //controllers
 
-
-
 var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
-app.controller('AppController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
+
+
+app.controller('HomeController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
-}]);
-
-app.controller('RootCtrl', ['$scope', function($scope){
-    $scope.title = "Home Page";
-}]);
-
-app.controller('CatsCtrl', ['$scope', function($scope){
-    $scope.title = "Cats Page";
 }]);
 
 app.config(['$routeProvider', function($routeProvider){
@@ -42,8 +34,11 @@ app.config(['$routeProvider', function($routeProvider){
         .when('/newgift', {
             templateUrl : './views/newgift.html'
         })
+        .when('/register', {
+            templateUrl : './views/register.html'
+        })
         .otherwise({
-            redirectTo : '/views/home'
+            redirectTo : '/home'
         });
 }]);
 
@@ -70,11 +65,32 @@ app.controller('LoginController', ['$scope', '$mdToast', '$animate',
         this.addUser = function() {
             $mdToast.show(
                 $mdToast.simple()
-                    .content('Thanks for your Message ' + this.contactName + ' You Rock!')
+                    .content('Thanks for your Message ' + this.firstName + ' You Rock!')
                     .position($scope.getToastPosition())
                     .hideDelay(3000)
             );
-            $http.put
         };
     }
-]);
+
+
+
+]); //end login controller
+
+
+//controller here
+app.controller("userController", ["$scope", '$http', function($scope, $http) {
+    $scope.getName = function(){
+        console.log('here');
+        $http.get('./routes/users')
+            .then(function(response){
+                if(response.status !==200){
+                    throw new Error("call failed")
+                }
+                $scope.username = response.data.username;
+                $scope.firstname = response.data.firstName;
+                $scope.lastname = response.data.lastName;
+                console.log(response);
+            })
+    };
+    $scope.getName();
+}]);

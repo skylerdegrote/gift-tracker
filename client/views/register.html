@@ -1,1 +1,32 @@
-<h1>register</h1>
+<div ng-controller="userController">
+    <div flex layout="row" class="md-padding">
+        <div flex-sm="100" flex-gt-sm="100" flex-gt-md="100" flex-gt-lg="100" class="md-whiteframe-z2">
+
+            <form action="/register" method="post">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username"/>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password"/>
+                </div>
+                <div>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" name="firstName" id="firstName"/>
+                </div>
+                <div>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" name="lastName" id="lastName"/>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email"/>
+                </div>
+                <div>
+                    <input type="submit" value="Register"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
