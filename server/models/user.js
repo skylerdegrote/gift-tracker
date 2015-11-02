@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
-var user = require('./users');
+//var user = require('./users');
+var bcrypt = require("bcrypt");
+var SALT_WORK_FACTOR = 10;
 var Schema = mongoose.Schema;
 var UserSchema = new Schema({
     firstName: {
@@ -16,7 +18,8 @@ var UserSchema = new Schema({
     },
     userName: {
         type: String,
-        required: true
+        required: true,
+        index: {unique:true}
     },
     password: {
         type: String,
@@ -37,7 +40,10 @@ var UserSchema = new Schema({
         },
         lastName: String,
         gender: String,
-        email: String,
+        email: {
+            type: String,
+            index: {unique: true}
+        },
         birthDate: Date,
         imageUrl: {type: String, default: 'assets/images/user.jpg'},
         notes: String
@@ -63,6 +69,30 @@ var UserSchema = new Schema({
     }],
     notes: String
 });
+
+
+
+UserSchema.pre("save", function(next){
+    var user = this;
+    if(!user.isModified('password')) return next();
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+        if(err) return next(err);
+        bcrypt.hash(user.password, salt, function(err, hash){
+            if(err) return next(err);
+            user.password = hash; //encrypts the password for this user
+            next();
+        });
+    });
+});
+
+UserSchema.methods.comparePassword = function(candidatePassword, cb){
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
+        if(err) return cb(err);
+        cb(null, isMatch);
+    });
+};
+
+
 
 var User = mongoose.model('user', UserSchema);
 module.exports = User;

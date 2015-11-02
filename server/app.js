@@ -1,58 +1,136 @@
-/**
- * Created by Skyler DeGrote on 8/11/15.
- */
 /////// THIS IS THE SERVER SIDE APP.JS FILE ////////
 //TRAFFIC CONTROL FILE//
 
 
+var express = require('express');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var path = require('path');
+var User = require('./models/user');
+var passport = require('passport');
+var session = require('express-session');
+var localStrategy = require('passport-local');
+//var auth = require('passport-google-oauth');
+//var flash = require('connect-flash');
 
+//var embed = require('./models/embed');
+//var register = require('./routes/register');
+//var login = require('./routes/login');
+//var admin = require('./routes/admin');
+//var embeds = require('./routes/embeds');
+var index = require('./routes/index');
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
 
-var express = require("express");
-var path = require("path");
-var mongoose = require("mongoose");
 
 var app = express();
 
-var index = require("./routes/index");
-//save all other files that are in the routes folder to variables for readability
+
+app.use(session({
+    secret: 'secret',
+    key: 'embed',
+    resave: true,
+    s: false,
+    saveUninitialized: true,
+    cookie: {maxAge: 60000, secure: false}
+}));
 
 
-var mongoURI = "mongodb://localhost:27017/gift-tracker";//the collection (database_name) is the database we are going to connect to
-var mongoDB = mongoose.connect(mongoURI).connection;//establishes the connection to the database
 
 
-//if the database is not connected correctly this will happen
-mongoDB.on("error", function(err){
-    if(err){
-        console.log("MONGO ERROR ", err);
-    }
-});
-//if the database is connected correctly this will happen
-mongoDB.once("open", function(){
-    console.log("CONNECTED TO MONGODB!");
-});
-
-//CHANGES THE FORMAT OF: DATABASE TO SERVER INFORMATION
-var bodyParser = require("body-parser");
+app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({expanded:true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 
+app.use(passport.initialize());
+app.use(passport.session());
 
+//Mongo Setup
+var mongoURI = "mongodb://localhost:27017/gift-trackerDB";
+var MongoDB = mongoose.connect(mongoURI).connection;
 
+MongoDB.on('error', function(err){
+    console.log("Mongo Connection Error: ", err);
+});
 
+MongoDB.once('open', function(err){
+    console.log("Mongo Connection Open")
+});
 
+//PASSPORT SESSION
+passport.serializeUser(function(user, done){
+    done(null, user.id);
+});
 
-//Create app and set port
+passport.deserializeUser(function(id, done){
+    User.findById(id, function(err, user){
+        if(err) done(err);
+        done(null, user);
+    });
+});
+
+passport.use('local', new localStrategy({
+    passReqToCallback: true,
+    usernameField: 'username'
+}, function(req, username, password, done){
+    User.findOne({username: username}, function(err, user){
+        if(err) throw err;
+        if(!user){
+            return done(null, false, {message: 'Incorrect username and password'})
+        }
+
+        user.comparePassword(password, function(err, isMatch){
+            if(err) throw err;
+            if(isMatch)
+                return done(null, user);
+            else
+                done(null, false, {message: 'Incorrect username and password'});
+        });
+    });
+}));
+
+////////////
+
+app.use(function(req,res, next){
+
+    req.db = mongoURI;
+    next();
+
+});
+
+app.get('/logout', function(req, res){
+    console.log('logging out');
+    req.logOut();
+    res.redirect('/');
+});
+
+/*app.all('/*', function(req, res, next) {
+ // CORS headers
+ res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+ res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+ // Set custom headers for CORS
+ res.header('Access-Control-Allow-Headers', 'Content-type,Accept');
+ // If someone calls with method OPTIONS, display the allowed methods on our API
+ if (req.method == 'OPTIONS') {
+ res.status(200);
+ res.write("Allow: GET,PUT,POST,DELETE,OPTIONS");
+ res.end();
+ } else {
+ next();
+ }
+ })*/
+
+//app.use('/register', register);
+//app.use('/login', login);
+//app.use('/admin', admin);
+//app.use('/resources', embeds);
+app.use('/', index);
+
 app.set("port", (process.env.PORT || 5000));
 
-//Start web service
-app.listen(app.get('port'), function() {
-    console.log("Now listening on port: " + app.get('port'));
+app.listen(app.get("port"), function(){
+    console.log("Listening on port: " + app.get("port"));
 });
 
-//Catchall for serving index.html
-app.get("/*", function(req, res) {
-    var file = req.params[0] || "views/index.html";
-    res.sendFile(path.join(__dirname, "./public", file));
-});
+module.exports = app;
