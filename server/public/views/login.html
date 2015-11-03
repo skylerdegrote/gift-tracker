@@ -55,24 +55,26 @@
 <!--</form>-->
 
 
-<div ng-controller="userController">
+<div ng-controller="LoginController">
 <div flex layout="row" class="md-padding">
     <div flex-sm="100" flex-gt-sm="100" flex-gt-md="100" flex-gt-lg="100" class="md-whiteframe-z2">
         <md-content class="md-padding">
             <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
-                <form name="contactForm" data-ng-submit="addUser()" method="post">
+                <form name="contactForm" method="post">
+
                     <md-input-container>
                         <label>First Name:</label>
-                        <input ng-model="firstName" required>
+                        <input ng-model="firstName" name="firstname" required>
                     </md-input-container>
+
                     <md-input-container flex>
                         <label>Last Name:</label>
-                        <input type="text" ng-model="lastname" required>
+                        <input type="text" ng-model="lastname" >
                     </md-input-container>
 
                     <md-input-container>
                         <label>Email:</label>
-                        <input type="email" ng-model="email" required>
+                        <input type="email" ng-model="email" >
                     </md-input-container>
 
                     <md-input-container>
@@ -82,62 +84,19 @@
 
                     <md-input-container>
                         <label>User Name</label>
-                        <input type="text" ng-model="username">
+                        <input type="text" ng-model="username" required>
                     </md-input-container>
 
                     <md-input-container>
                         <label>Password</label>
-                        <input type="password" ng-model="password">
+                        <input type="password" ng-model="password" required>
                     </md-input-container>
 
                     <!--<textarea ng-model="contactMsg" columns="3" md-maxlength="150" required></textarea>-->
 
-                    <md-button ng-click="getName()" type="submit" class="md-primary"
-                               ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }"
-                               aria-label="Save Project">Send</md-button>
-                </form>
-            </div>
-
-
-        </md-content>
-
-        <md-content class="md-padding">
-            <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
-                <form name="contactForm" data-ng-submit="addUser()" method="post">
-                    <md-input-container>
-                        <label>First Name:</label>
-                        <input ng-model="firstName" required>
-                    </md-input-container>
-                    <md-input-container flex>
-                        <label>Last Name:</label>
-                        <input type="text" ng-model="lastname" required>
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>Email:</label>
-                        <input type="email" ng-model="email" required>
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>Birth Date</label>
-                        <input type="date" ng-model="birthdate">
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>User Name</label>
-                        <input type="text" ng-model="username">
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>Password</label>
-                        <input type="password" ng-model="password">
-                    </md-input-container>
-
-                    <!--<textarea ng-model="contactMsg" columns="3" md-maxlength="150" required></textarea>-->
-
-                    <md-button ng-click="getName()" type="submit" class="md-primary"
-                               ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }"
-                               aria-label="Save Project">Send</md-button>
+                    <md-button ng-click="createUser()" type="submit" class="md-primary"
+                               ng-class="{'md-raised md-hue-2': (contactForm.$dirty && contactForm.$valid) }"
+                               aria-label="Save Project" ng-disabled="$invalid">Send</md-button>
                 </form>
             </div>
 

@@ -43,54 +43,73 @@ app.config(['$routeProvider', function($routeProvider){
 }]);
 
 
-app.controller('LoginController', ['$scope', '$mdToast', '$animate',
-    function($scope, $mdToast, $animate) {
-
-        //3. we decide where the toast will display on the view
-        $scope.toastPosition = {
-            bottom: false,
-            top: true,
-            left: false,
-            right: true
-        };
-
-        //2. the method looks for the position that we want to display the toast
-        $scope.getToastPosition = function() {
-            return Object.keys($scope.toastPosition)
-                .filter(function(pos) { return $scope.toastPosition[pos]; })
-                .join(' ');
-        };
-
-        //1. The send button will call this method
-        this.addUser = function() {
-            $mdToast.show(
-                $mdToast.simple()
-                    .content('Thanks for your Message ' + this.firstName + ' You Rock!')
-                    .position($scope.getToastPosition())
-                    .hideDelay(3000)
-            );
-        };
-    }
-
-
-
-]); //end login controller
+//app.controller('LoginController', ['$scope', '$mdToast', '$animate',
+//    function($scope, $mdToast, $animate) {
+//
+//        //3. we decide where the toast will display on the view
+//        $scope.toastPosition = {
+//            bottom: false,
+//            top: true,
+//            left: false,
+//            right: true
+//        };
+//
+//        //2. the method looks for the position that we want to display the toast
+//        $scope.getToastPosition = function() {
+//            return Object.keys($scope.toastPosition)
+//                .filter(function(pos) { return $scope.toastPosition[pos]; })
+//                .join(' ');
+//        };
+//
+//        //1. The send button will call this method
+//        this.addUser = function() {
+//            $mdToast.show(
+//                $mdToast.simple()
+//                    .content('Thanks for your Message ' + this.firstName + ' You Rock!')
+//                    .position($scope.getToastPosition())
+//                    .hideDelay(3000)
+//            );
+//        };
+//    }
+//
+//
+//
+//]); //end login controller
 
 
 //controller here
-app.controller("userController", ["$scope", '$http', function($scope, $http) {
-    $scope.getName = function(){
+app.controller("LoginController", ["$scope", '$http', function($scope, $http) {
+    $scope.createUser = function(){
         console.log('here');
-        $http.get('./routes/users')
+
+        $http.post('/user', user.create())
             .then(function(response){
                 if(response.status !==200){
                     throw new Error("call failed")
                 }
                 $scope.username = response.data.username;
-                $scope.firstname = response.data.firstName;
-                $scope.lastname = response.data.lastName;
-                console.log(response);
+                $scope.password = response.data.password;
+                $scope.firstname = response.data.firstname;
+                console.log($scope.firstname);
             })
     };
-    $scope.getName();
+    $scope.createUser();
+
+    //$scope.userInfo = function(data){
+    //    console.log('at the user info');
+    //    $http.post('/login', data)
+    //        .then(function(response){
+    //            if(response.status !==200){
+    //                throw new Error("call failed")
+    //            }
+    //            $scope.username = response.data.username;
+    //            $scope.firstname = response.data.firstName;
+    //            $scope.lastname = response.data.lastName;
+    //
+    //        })
+    //};
+    //$scope.userInfo();
 }]);
+
+
+
