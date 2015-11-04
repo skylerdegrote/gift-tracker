@@ -1,5 +1,4 @@
 //controllers
-
 var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 
 
@@ -13,7 +12,7 @@ app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/home', {
             templateUrl : './views/home.html',
-            controller: 'homeController'
+            controller: 'HomeController'
         })
         .when('/login', {
             templateUrl : './views/login.html',
@@ -69,6 +68,14 @@ app.controller('LoginController', ['$scope', '$mdToast', '$animate',
                     .position($scope.getToastPosition())
                     .hideDelay(3000)
             );
+
+            $http.post('./routes/register')
+                .then(function(response){
+                    if(response.status !== 200){
+                        throw new Error("Call Failed")
+                    }
+                    console.log("post is working!");
+                })
         };
     }
 
@@ -77,11 +84,11 @@ app.controller('LoginController', ['$scope', '$mdToast', '$animate',
 ]); //end login controller
 
 
-//controller here
+//controller
 app.controller("userController", ["$scope", '$http', function($scope, $http) {
     $scope.getName = function(){
         console.log('here');
-        $http.get('./routes/users')
+        $http.get('./routes/user.js')
             .then(function(response){
                 if(response.status !==200){
                     throw new Error("call failed")
@@ -89,7 +96,7 @@ app.controller("userController", ["$scope", '$http', function($scope, $http) {
                 $scope.username = response.data.username;
                 $scope.firstname = response.data.firstName;
                 $scope.lastname = response.data.lastName;
-                console.log(response);
+                console.log("works");
             })
     };
     $scope.getName();
