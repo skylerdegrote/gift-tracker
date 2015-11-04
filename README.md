@@ -20,7 +20,7 @@ and enjoy working with others. I've asked a couple of my friends to help out wit
 environment.
 
 #### Maria
-( To be filled out by Maria later on )
+As a fellow classmate of Skyler's, I was excited about helping Skyler with this project.  I enjoy figuring out data and we talked through how the MongoDB schema on the server-side would be be used to coexist with a great UX experience on the front-end.  In my spare time, I enjoy studying new technologies, sipping a good cup of coffee, and spending time with friends. 
 
 #### Samantha
 ( To be filled out by Sam later on )
