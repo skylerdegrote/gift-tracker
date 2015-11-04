@@ -1,6 +1,6 @@
 //controllers
 
-var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
+var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAria']);
 
 
 app.controller('HomeController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {

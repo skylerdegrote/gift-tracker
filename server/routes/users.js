@@ -11,10 +11,14 @@ router.get('/name', function(req, res, next){
 
 });
 
+//I'm not sure why the date and not the user is being put to the db?
+
 router.put("/date", function(req,res,next){
     User.findByIdAndUpdate(req.user.id, {lastlogin: Date.now()}, function(){
         console.log("Date Updated!");
     });
+
+
 
     res.json(req.user);
 });
