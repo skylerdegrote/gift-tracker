@@ -1,16 +1,19 @@
 //server side
 
 var express = require("express");
-var path = require("path");
-var index = require("./routes/index.js");
 var app = express();
+var path = require("path");
+var bodyParser = require('body-parser');
+
+var index = require("./routes/index.js");
 var passport = require("passport");
 var session = require("express-session");
 var localStrategy = require("passport-local").Strategy;
 var mongoose = require("mongoose");
 var User = require('./models/user');
 var login = require('./routes/login');
-var bodyParser = require('body-parser');
+var register = require('./routes/register');
+
 var mongoURI = 'mongodb://localhost:27017/gift-trackerDB';
 var mongoDB = mongoose.connect(mongoURI).connection;
 
@@ -72,6 +75,8 @@ passport.use('local', new localStrategy({
 
 //routing
 app.use("/login", login);
+app.use('/register', register);
+
 
 app.use("/", index);
 app.listen(app.get("port"), function(){

@@ -63,6 +63,15 @@ module.exports = function(grunt){
                 cwd: 'node_modules',
                 src: "angular-material/angular-material.min.js",
                 dest: "server/public/vendors/"
+<<<<<<< HEAD
+=======
+            },
+            jquery: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'jquery/dist/jquery.min.js',
+                dest: 'server/public/vendors'
+>>>>>>> 3646b622d18d9fc548174cb83170df5508b7eb78
             }
         }
     });

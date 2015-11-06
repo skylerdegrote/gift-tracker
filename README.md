@@ -11,6 +11,7 @@ what you've purchased and more
 * Passport
 
 ***
+<<<<<<< HEAD
 ## About the Authors
 #### Skyler DeGrote
 My name is Skyler DeGrote and I am a skilled Full MEAN stack software engineer. I am the creator of this application idea and have planned it out with
@@ -24,3 +25,5 @@ environment.
 
 #### Samantha
 ( To be filled out by Sam later on )
+=======
+>>>>>>> 3646b622d18d9fc548174cb83170df5508b7eb78
