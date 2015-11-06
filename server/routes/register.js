@@ -18,7 +18,7 @@ router.post('/', function(req,res,next) {
         console.log("register.js 3");
 
         console.log("in post" + req.body);
-        if (err) next("That user already exists in this nug!");
+        if (err) next("That user already exists!");
         else res.redirect('/')
     });
 });
