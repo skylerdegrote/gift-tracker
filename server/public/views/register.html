@@ -1,36 +1,69 @@
-<div ng-controller="UserController">
+<!--<div ng-controller="UserController">-->
+    <!--<div flex layout="row" class="md-padding">-->
+        <!--<div flex-sm="100" flex-gt-sm="100" flex-gt-md="100" flex-gt-lg="100" class="md-whiteframe-z2">-->
+
+            <!--<md-content>-->
+            <!--<form action="/register" method="post">-->
+                <!--<div>-->
+                    <!--<label for="username">Username:</label>-->
+                    <!--<input type="text" name="username" id="username"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<label for="password">Password:</label>-->
+                    <!--<input type="password" name="password" id="password"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<label for="firstName">First Name:</label>-->
+                    <!--<input type="text" name="firstname" id="firstName"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<label for="lastName">Last Name:</label>-->
+                    <!--<input type="text" name="lastname" id="lastName"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<label for="email">Email:</label>-->
+                    <!--<input type="email" name="email" id="email"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<label for="gender">Gender:</label>-->
+                    <!--<input type="text" name="gender" id="gender"/>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<input type="submit" value="Register"/>-->
+                <!--</div>-->
+            <!--</form>-->
+            <!--</md-content>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+
+<div ng-controller="LoginController">
     <div flex layout="row" class="md-padding">
         <div flex-sm="100" flex-gt-sm="100" flex-gt-md="100" flex-gt-lg="100" class="md-whiteframe-z2">
 
-            <form action="/register" method="post">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" name="username" id="username"/>
+
+            <md-content class="md-padding">
+                <!--<form action="/register" method="post">-->
+                <div flex-sm="100" flex-gt-sm="80" layout-sm="column">
+                    <form action="/register" method="get" name="contactForm" data-ng-submit="addUser()" method="post">
+                        <md-input-container>
+                            <label for="username">User Name</label>
+                            <input id="username" type="text" ng-model="username">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label for="password">Password</label>
+                            <input id="password" type="password" ng-model="password">
+                        </md-input-container>
+
+
+                        <md-button ng-click="getName()" type="submit" class="md-primary"
+                                   ng-class="{'md-raised md-hue-1': (contactForm.$dirty && contactForm.$valid) }"
+                                   aria-label="Save Project">Send</md-button>
+                    </form>
                 </div>
-                <div>
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password"/>
-                </div>
-                <div>
-                    <label for="firstName">First Name:</label>
-                    <input type="text" name="firstname" id="firstName"/>
-                </div>
-                <div>
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" name="lastname" id="lastName"/>
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email"/>
-                </div>
-                <div>
-                    <label for="gender">Email:</label>
-                    <input type="text" name="gender" id="gender"/>
-                </div>
-                <div>
-                    <input type="submit" value="Register"/>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
+
+            </md-content>
