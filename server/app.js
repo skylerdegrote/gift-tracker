@@ -14,7 +14,7 @@ var User = require('./models/user');
 var login = require('./routes/login');
 var register = require('./routes/register');
 
-var mongoURI = 'mongodb://localhost:27017/gift-trackerDB';
+var mongoURI = 'mongodb://localhost:27017/gift-trackerDB2';
 var mongoDB = mongoose.connect(mongoURI).connection;
 
 //Setting up Mongo communication
