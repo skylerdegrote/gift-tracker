@@ -1,6 +1,6 @@
 //controllers
 
-var app = angular.module('myApp', ['ngRoute', 'ngMaterial']);
+var app = angular.module('myApp', ['ngRoute', 'ngMaterial','ngAria']);
 
 
 app.controller('HomeController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
@@ -81,8 +81,12 @@ app.controller('LoginController', ['$scope', '$mdToast', '$animate',
 app.controller("userController", ["$scope", '$http', function($scope, $http) {
     $scope.getName = function(){
         console.log('here');
-        $http.get('./routes/users')
-            .then(function(response){
+            $http({
+                method: 'POST',
+                url: '/',
+                data: $scope.username
+            }).then(function(response) {
+                console.log(response);
                 if(response.status !==200){
                     throw new Error("call failed")
                 }

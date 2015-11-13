@@ -3,6 +3,7 @@
 var express = require("express");
 var path = require("path");
 var index = require("./routes/index.js");
+var register = require("./routes/register.js");
 var app = express();
 var passport = require("passport");
 var session = require("express-session");
@@ -71,9 +72,11 @@ passport.use('local', new localStrategy({
 
 
 //routing
-app.use("/login", login);
-
 app.use("/", index);
+app.use("/login", login);
+app.use("/register", register);
+
+
 app.listen(app.get("port"), function(){
     console.log("Listening to port: "+app.get("port"));
 });
